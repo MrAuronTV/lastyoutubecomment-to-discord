@@ -20,7 +20,7 @@ except (OSError, IOError) as e:
     foo = 3
     pickle.dump(foo, open("{}/lastcomment".format(PATH), "wb"))
 
-API_ENDPOINT = 'https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&allThreadsRelatedToChannelId={0}&moderationStatus=published&order=time&textFormat=plainText&key={1}&maxResults=1'.format(CHANNEL_ID,API_KEY)
+API_ENDPOINT = 'https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&allThreadsRelatedToChannelId={0}&moderationStatus=published&order=time&textFormat=plainText&key={1}&maxResults=1'.format(CHANNEL_ID,API_KEY)
 r = requests.get(url = API_ENDPOINT)
 
 COMMENT = loads(r.text)['items'][0]['snippet']['topLevelComment']['snippet']['textDisplay'] #GET COMMENT
